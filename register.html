@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="login.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="b">
+        <form id="registerForm">
+            <h1>REGISTER</h1>
+            <div class="textBoxdiv">
+                <input type="text" placeholder="Full Name" name="firstName" required>
+            </div>   
+            <div class="textBoxdiv">
+                <input type="email" placeholder="Email" name="email" required>
+            </div>
+            <div class="textBoxdiv">
+                <input type="date" placeholder="Date of Birth" name="dob" required>
+            </div>
+            <input type="submit" value="Register" class="loginbtn">
+            <div class="signup">
+                Already have an account?
+                <br> <a href="login.html">Log in</a>
+            </div>
+        </form>
+    </div>
+<script>
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Here you can add code to handle the registration (e.g., send an AJAX request to a server)
+    // For simplicity, let's just redirect to the login.html on successful registration
+    window.location.href = "login.html";
+});
+
+</script>
+    
+</body>
+</html>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <form>
+    <form id="loginForm">
       <h1>Login</h1>
       <div class="textBoxdiv">
         <input type="text" placeholder="username">
@@ -19,8 +19,19 @@
       <div class="signup">
         Don't have an account ?
         <br>
-        <a href="#">Sign Up</a>
+        <a href="register.html">Sign Up</a>
       </div>
     </form>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Here you can add code to check the credentials (e.g., send an AJAX request to a server)
+    // For simplicity, let's just redirect to the index.html on successful login
+    window.location.href = "index.html";
+});
+
+    </script>
 </body>
 </html>
