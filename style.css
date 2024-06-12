@@ -184,7 +184,7 @@ header{
     display: flex;
     padding: 20px 80px;
     justify-content: space-between;
-    background-color: gray;
+    background-color:black;
     background-repeat: no-repeat;
     z-index: 999;
     position: sticky;
@@ -217,7 +217,7 @@ nav{
     padding: 50px 60px 0 60px;
 }
 nav h1{
-    color: yellow;
+    color:gray;
 }
 nav li {
     list-style: none;
@@ -412,7 +412,7 @@ nav li a:hover::after{
     padding: 10px 0;
 }
 #banner h2 span{
-    color: red;
+    color: white;
 }
 #banner button:hover{
    background: green;
@@ -542,7 +542,7 @@ nav li a:hover::after{
     border-bottom-left-radius: 0;
 }
 footer {
-    background-color: skyblue;
+    background-color: aquamarine;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -677,7 +677,7 @@ footer .copyright {
 }
 #blog{
     padding: 150px 150px 0 150px;
-    background-color: orangered;
+
 }
 #blog .blog-box{
     align-items: center;
@@ -805,11 +805,11 @@ footer .copyright {
     height: 100%;
 }
 #form-details {
-    background-color: green;
+    background-color:transparent;
     display: flex;
     justify-content:space-between ;
     margin: 30px;
-    padding: 80px;border: 1px solid #1a1a1a;
+    padding: 80px;
 }
 #form-details form{
     width: 65%;
