@@ -58,7 +58,13 @@ button.white{
 }
 body{
     width: 100%;
-    background-color: aquamarine;
+   
+}
+#jane h1 p{
+    align-items: center;
+    background: transparent;
+    color: yellow;
+
 }
 
 .register{
@@ -120,7 +126,7 @@ table{
     padding-bottom:15px ;
 }
 #hero h1{
-    color:blueviolet ;
+    color:black ;
 }
 #hero button{
    background-image: url();
@@ -441,17 +447,17 @@ nav li a:hover::after{
     background-image: url(images/product4.jpg);
 }
 #sm-banner h4{
-    color: darkblue;
+    color: white;
     font-size: 20px;
     font-weight: 300;
 }
 #sm-banner h2{
-    color: orangered;
+    color: black;
     font-size: 28px;
     font-weight: 800;
 }
 #sm-banner span{
-    color: blue;
+    color: white;
     font-size: 14px;
     font-weight: 500;
     padding-bottom: 15px;
@@ -481,12 +487,12 @@ nav li a:hover::after{
     margin-bottom: 20px;
 }
 #banner3 h2{
-    color: yellow;
+    color: black;
     font-weight: 900;
     font-size: 22px;
 }
 #banner3 h3{
-    color: red;
+    color: white;
     font-weight: 800;
     font-size: 15px;
 }

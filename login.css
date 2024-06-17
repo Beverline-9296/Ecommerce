@@ -12,8 +12,8 @@ body{
 form{
     background: grey;
     width: 350px;
-    height: 500px;
-    padding:75px 50px;
+    height: 600px; /* Adjusted height to accommodate new fields */
+    padding: 75px 50px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -30,7 +30,7 @@ h1{
     position: relative;
     margin: 35px 0;
 }
-.textBoxdiv input{
+.textBoxdiv input, .textBoxdiv select{
     background: none;
     border: none;
     outline: none;
@@ -47,7 +47,7 @@ h1{
     background-size: 200%;
     color: white;
     font-size: 16px;
-    background: linear-gradient(to right top,#a1a1a1,#84b4d7,#00d1e3,#00e7a2,#abeb12);;
+    background: linear-gradient(to right top,#a1a1a1,#84b4d7,#00d1e3,#00e7a2,#abeb12);
 }
 .loginbtn:hover{
     background-position: right;
@@ -57,8 +57,12 @@ h1{
     color: white;
     margin-top: 45px;
     text-align: center;
-
 }
-.signup a{
+.signup .login a{
     color: black;
+}
+.login {
+    color: white;
+    margin-top: 45px;
+    text-align: center;
 }

@@ -8,23 +8,33 @@
 </head>
 <body>
     <form id="registerForm">
-        <h1>Register</h1>
+        <h1>Sign Up</h1>
+        <div class="textBoxdiv">
+            <input type="text" placeholder="Full Name" name="fullName" id="fullName" required>
+        </div>
         <div class="textBoxdiv">
             <input type="text" placeholder="Email" name="email" id="email" required>
         </div>   
         <div class="textBoxdiv">
             <input type="password" placeholder="Password" name="psw" id="psw" required>
         </div>
+        <div class="textBoxdiv">
+            <select name="gender" id="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
         <input type="submit" value="Register" class="loginbtn">
         <div class="signup">
-            Already have an account?<br>
+            Already have an account?<br><br>
             <a href="login.html">Log in</a>
         </div>
     </form>
 
     <script type="module">
-
-        // Import the functions you need from the Firebase SDKs
+        // Firebase initialization script here
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-auth.js";
         import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-database.js";
@@ -38,44 +48,40 @@
             appId: "1:122288834337:web:773ff26942d13954ad2060"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const auth = getAuth();
+        const auth = getAuth(app);
         const database = getDatabase(app);
 
         document.getElementById('registerForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('psw').value;
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('psw').value;
+            const gender = document.getElementById('gender').value;
 
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
-                    // Registered successfully
                     const user = userCredential.user;
-                    
-                    // Save user data to database
+
                     const userRef = ref(database, 'users/' + user.uid);
                     set(userRef, {
+                        fullName: fullName,
                         email: email,
                         password: password,
-                        // You can add additional fields here as needed
+                        gender: gender
                     })
                     .then(() => {
-                        // Data saved successfully
                         alert('Registration successful');
                         window.location.href = "login.html"; // Redirect to login page
                     })
                     .catch((error) => {
-                        // Handle data save error
                         alert('Failed to save user data: ' + error.message);
                     });
                 })
                 .catch((error) => {
-                    // Handle registration errors
                     alert('Registration failed: ' + error.message);
                 });
         });
-     
     </script>
 </body>
 </html>

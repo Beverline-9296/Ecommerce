@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="login.css">
-</head>
-<body>
-    <form id="loginForm">
-        <h1>Login</h1>
-        <div class="textBoxdiv">
-            <input type="text" placeholder="Email" name="email" id="email" required>
-        </div>   
-        <div class="textBoxdiv">
-            <input type="password" placeholder="Password" name="psw" id="psw" required>
-        </div>
-        <input type="submit" id="submitData" value="Log in" name="submitData" class="loginbtn">
-        <div class="login">
-            Don't have an account?<br> <br>
-            <a href="register.html">Sign Up</a>
-        </div>
-    </form>
 
-    <script type="module">
         // Import the functions you need from the Firebase SDKs
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-auth.js";
@@ -73,7 +49,3 @@
                 });
         });
         
-
-    </script>
-</body>
-</html>
