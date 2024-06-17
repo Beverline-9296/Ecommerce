@@ -3,37 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Page</title>
-    <link rel="stylesheet" href="login.css"> 
+    <title>Register</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="b">
-        <form id="registerForm">
-            <h1>REGISTER</h1>
-            <div class="textBoxdiv">
-                <input type="text" placeholder="Full Name" name="firstName" required>
-            </div>   
-            <div class="textBoxdiv">
-                <input type="email" placeholder="Email" name="email" required>
-            </div>
-            <div class="textBoxdiv">
-                <input type="date" placeholder="Date of Birth" name="dob" required>
-            </div>
-            <input type="submit" value="Register" class="loginbtn">
-            <div class="signup">
-                Already have an account?
-                <br> <a href="login.html">Log in</a>
-            </div>
-        </form>
-    </div>
-<script>
-    document.getElementById("registerForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    
-    window.location.href = "login.html";
-});
+    <form id="registerForm">
+        <h1>Register</h1>
+        <div class="textBoxdiv">
+            <input type="text" placeholder="Email" name="email" id="email" required>
+        </div>   
+        <div class="textBoxdiv">
+            <input type="password" placeholder="Password" name="psw" id="psw" required>
+        </div>
+        <input type="submit" value="Register" class="loginbtn">
+        <div class="signup">
+            Already have an account?<br>
+            <a href="login.html">Log in</a>
+        </div>
+    </form>
 
-</script>
-    
+    <script type="module">
+
+        // Import the functions you need from the Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-auth.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyC5f-AgGxwfDXdVs1TbKEw4ltcjXfkMgUg",
+            authDomain: "ecommerce-4f766.firebaseapp.com",
+            projectId: "ecommerce-4f766",
+            storageBucket: "ecommerce-4f766.appspot.com",
+            messagingSenderId: "122288834337",
+            appId: "1:122288834337:web:773ff26942d13954ad2060"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const database = getDatabase(app);
+
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('psw').value;
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Registered successfully
+                    const user = userCredential.user;
+                    
+                    // Save user data to database
+                    const userRef = ref(database, 'users/' + user.uid);
+                    set(userRef, {
+                        email: email,
+                        password: password,
+                        // You can add additional fields here as needed
+                    })
+                    .then(() => {
+                        // Data saved successfully
+                        alert('Registration successful');
+                        window.location.href = "login.html"; // Redirect to login page
+                    })
+                    .catch((error) => {
+                        // Handle data save error
+                        alert('Failed to save user data: ' + error.message);
+                    });
+                })
+                .catch((error) => {
+                    // Handle registration errors
+                    alert('Registration failed: ' + error.message);
+                });
+        });
+     
+    </script>
 </body>
 </html>
