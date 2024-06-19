@@ -14,6 +14,7 @@ My project has the following:
 
 -Checkout Process: To manage the cart, users can utilize the "CHECK" button, which allows them to remove all products from the cart at once. This feature provides flexibility and convenience for users who may want to start over or adjust their selections.
 
+After the check out the customer can print the product receipt for future refrence.Hence the website is flexible/user freindly
 -Target Audience: Your website targets furniture creators, offering them a platform to showcase and sell their products locally and internationally. This global accessibility enhances sales opportunities and expands market reach for furniture designers and manufacturers.
 
 -User Experience: The website aims to provide a user-friendly interface that encourages exploration and facilitates purchases. With intuitive navigation and clear product information, users can easily browse through furniture selections, add items to their cart, and proceed through a streamlined checkout process.

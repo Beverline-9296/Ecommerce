@@ -286,3 +286,42 @@ function removeFromCart(itemId){
 
 onLoadCartNumbers();
 displayCart();
+// Sample customer object (you can replace this with your actual shopping cart logic)
+const customer = {
+    name: "John Doe",
+    email: "johndoe@example.com",
+    itemsPurchased: [
+        { name: "Item 1", price: 20 },
+        { name: "Item 2", price: 30 },
+        { name: "Item 3", price: 25 }
+    ],
+    totalAmount: 0,
+    paymentMethod: "Credit Card"
+};
+
+// Function to display receipt details
+function displayReceipt() {
+    const receiptDetails = document.getElementById('receipt-details');
+    receiptDetails.innerHTML = `
+        <p><strong>Customer:</strong> ${customer.name}</p>
+        <p><strong>Email:</strong> ${customer.email}</p>
+        <p><strong>Items Purchased:</strong></p>
+        <ul>
+            ${customer.itemsPurchased.map(item => `<li>${item.name}: $${item.price}</li>`).join('')}
+        </ul>
+        <p><strong>Total Amount:</strong> $${customer.totalAmount}</p>
+        <p><strong>Payment Method:</strong> ${customer.paymentMethod}</p>
+    `;
+}
+
+// Calculate total amount
+customer.itemsPurchased.forEach(item => {
+    customer.totalAmount += item.price;
+});
+
+// Print receipt button functionality
+const printReceiptBtn = document.getElementById('print-receipt-btn');
+printReceiptBtn.addEventListener('click', () => {
+    displayReceipt();
+    window.print();
+});

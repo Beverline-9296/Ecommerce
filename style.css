@@ -1480,3 +1480,35 @@ nav li a:hover::after{
     max-width: 1100px;
     margin: 0;
 }
+/* Example styles for receipt container and button */
+.receipt-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.receipt-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.receipt-container #receipt-details {
+    margin-bottom: 15px;
+}
+
+.receipt-container button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.receipt-container button:hover {
+    background-color: #45a049;
+}
